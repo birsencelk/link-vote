@@ -1,0 +1,9 @@
+export const ADD_LINK_SUCCESS = 'ADD_LINK_SUCCESS';
+
+export const VOTE_SUCCESS = 'VOTE_SUCCESS';
+
+export const ORDER_FUNC_SUCCESS = 'ORDER_FUNC_SUCCESS';
+
+export const DELETE_ITEM_SUCCESS = 'DELETE_ITEM_SUCCESS';
+
+export const RESET = 'RESET';
