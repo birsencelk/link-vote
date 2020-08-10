@@ -21,25 +21,38 @@ export const AddLink = () => {
     setUrl('');
 
     if(link && url){
-      dispatch(addLink([
-        {
-          link:link,
-          url:url,
-          votes:0,
-          id: new Date().getTime()
-        }
-      ]));
-      
-      toast.success(`${link} added.`, {
-        position: "top-center",
-        autoClose: 2000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        width:'100%'
-      });
+      if(!(/^(https?:\/\/)|(http?:\/\/)+$/.test(url))){
+        toast.error(`You must enter the url format correctly`, {
+          position: "top-center",
+          autoClose: 2000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          width:'100%'
+        });
+      }else {
+        dispatch(addLink([
+          {
+            link:link,
+            url:url,
+            votes:0,
+            id: new Date().getTime()
+          }
+        ]));
+        
+        toast.success(`${link} added.`, {
+          position: "top-center",
+          autoClose: 2000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          width:'100%'
+        });
+      }
     }else {
       if(!link){
         toast.error(`You have to add link`, {
